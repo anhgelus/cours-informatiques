@@ -1,3 +1,9 @@
+---
+tags:
+  - cpes
+  - informatique
+  - rentrée
+---
 Enseignante-chercheur à Dauphine et maître de conférence
 Chercheuse en info à Dauphine, au LAMSADE (recherche info de Dauphine)
 gabrel@lamsade.dauphine.fr
