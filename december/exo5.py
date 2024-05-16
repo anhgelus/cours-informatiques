@@ -6,6 +6,7 @@ def valid(s: str) -> bool:
         l = c
     return True
 
+
 p = input("Phrase à clean : ")
 l = ""
 while not valid(p):
@@ -17,4 +18,3 @@ while not valid(p):
     p = n
 
 print("Chaîne clean :", p)
-

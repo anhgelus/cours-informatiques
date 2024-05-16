@@ -1,22 +1,27 @@
 import string
 
+
 def obtenirPos(ch: str, alpha: str) -> int:
     """
     Donne la position de la lettre ch en utilisant la base alpha
     """
-    return alpha.find(ch)+1
+    return alpha.find(ch) + 1
+
 
 def obtenirLettre(p: int, alpha: str) -> str:
     """
     Récupère une lettre ch depuis sa position dans la base alpha
     """
-    return alpha[p-1]
+    return alpha[p - 1]
+
 
 def retireSpecial(ch: str) -> str:
     """
     Retire tous les caractères spéciaux de la chaîne de caractère ch
     """
-    return ch.replace("é", "e").replace("è", "e").replace("ê", "e").replace("à", "a").replace("î", "i").replace("ù", "u")
+    return ch.replace("é", "e").replace("è", "e").replace("ê", "e").replace("à", "a").replace("î", "i").replace("ù",
+                                                                                                                "u")
+
 
 def nombre(i: int) -> str:
     """
@@ -24,11 +29,13 @@ def nombre(i: int) -> str:
     """
     return string.punctuation[i]
 
+
 def obtenirNombre(p: str) -> int:
     """
     Donne le nombre lié à la ponctuation p
     """
     return string.punctuation.find(p)
+
 
 def chiffrer(msg: str, k: int, alpha: str) -> str:
     """
@@ -48,8 +55,9 @@ def chiffrer(msg: str, k: int, alpha: str) -> str:
             if ch not in alpha:
                 nMsg += nombre(int(ch))
             else:
-                nMsg += obtenirLettre((obtenirPos(ch, alpha)+k)%26, alpha)
+                nMsg += obtenirLettre((obtenirPos(ch, alpha) + k) % 26, alpha)
     return nMsg
+
 
 def dechiffrer(msg: str, k: int, alpha: str) -> str:
     """
@@ -63,16 +71,18 @@ def dechiffrer(msg: str, k: int, alpha: str) -> str:
             if ch in string.punctuation:
                 nMsg += str(obtenirNombre(ch))
             else:
-                nMsg += obtenirLettre((obtenirPos(ch, alpha)-k)%26, alpha)
+                nMsg += obtenirLettre((obtenirPos(ch, alpha) - k) % 26, alpha)
     return nMsg
 
-def enumk(msg: str, alpha: str) -> None :
+
+def enumk(msg: str, alpha: str) -> None:
     """
     Bruteforce le message msg en base alpha
     """
-    for k in range(1,26):
+    for k in range(1, 26):
         print(f"Entier utilisé : {k}")
         print(dechiffrer(msg, k, alpha))
+
 
 def freqMax(msg: str, alpha: str) -> str:
     """
@@ -92,6 +102,7 @@ def freqMax(msg: str, alpha: str) -> str:
     # on renvoie la lettre la plus utilisée
     return last
 
+
 def smartBruteforce(msg: str, alpha: str) -> None:
     """
     Bruteforce intelligement en base alpha le message msg en supposant que la lettre la plus fréquente est le 'e'
@@ -100,9 +111,10 @@ def smartBruteforce(msg: str, alpha: str) -> None:
     print(f"La lettre la plus utilisée est {fMax}.")
     pos = obtenirPos(fMax, alpha)
     posE = obtenirPos("e", alpha)
-    k = (pos-posE)%26
+    k = (pos - posE) % 26
     print(f"Si on suppose que {fMax} est 'e', alors l'entier vaut {k} et la chaîne déchiffrée est donc :\n")
     print(dechiffrer(msg, k, alpha))
+
 
 alpha = 'abcdefghijklmnopqrstuvwxyz'
 

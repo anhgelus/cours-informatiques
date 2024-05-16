@@ -1,7 +1,7 @@
 ch = input("Saisir texte ")
-chnew = ""
+ch_new = ""
 i = 0
 for c in ch:
-    chnew += c
+    ch_new += c
     i += 1
-print(i,chnew)
+print(i, ch_new)

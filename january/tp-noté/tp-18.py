@@ -4,19 +4,21 @@ Mots = 'A B C D E F G H I J K L M N O P Q R S T U V W X Y Z AA AH AI AN AS AU AY
 
 Pioche = 'AAAABCDDEEEEEEEEFGHIIIIJKLLLMMNNNOOOPQRRRSSSTTTUUVWXYZ'
 
-Alpha ='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+Alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 Points = '13321424189121138111149999'
+
 
 def tirage(pioche: str, k: int) -> tuple[str, str]:
     if k >= len(pioche):
         return pioche, ""
     tired = ""
     for i in range(k):
-        r = rand.randint(0, len(pioche)-1)
+        r = rand.randint(0, len(pioche) - 1)
         tired += pioche[r]
-        pioche = pioche[:r] + pioche[r+1:]
+        pioche = pioche[:r] + pioche[r + 1:]
     return tired, pioche
+
 
 def valide(lettres: str, mot: str) -> bool:
     for a in mot:
@@ -26,14 +28,17 @@ def valide(lettres: str, mot: str) -> bool:
             lettres = lettres.replace(a, "", 1)
     return True
 
+
 def getPos(l: str) -> int:
     return Alpha.find(l)
+
 
 def score(mot: str, points: str) -> int:
     s = 0
     for m in mot:
         s += int(points[getPos(m)])
     return s
+
 
 def ordi(lettres: str, Mots: str, Points: str) -> str:
     sc = 0
@@ -42,7 +47,8 @@ def ordi(lettres: str, Mots: str, Points: str) -> str:
         if valide(lettres, mot):
             if score(mot, Points) > sc:
                 better = mot
-    return better 
+    return better
+
 
 def verif(motOrdi: str, lettres: str, prop: str) -> bool:
     g = False
@@ -53,6 +59,7 @@ def verif(motOrdi: str, lettres: str, prop: str) -> bool:
                 return False
             g = True
     return g and valide(lettres, prop)
+
 
 # on affiche un petit header pour que ce soit plus jolie
 print("#####################")
@@ -88,10 +95,9 @@ while len(Pioche) > 0:
 
 print("\n------------------------------------------\n")
 
-if pointsOrdi > pointsPlayer :
+if pointsOrdi > pointsPlayer:
     print(f"Vous avez perdu ! ({pointsPlayer} contre {pointsOrdi})")
 elif pointsOrdi == pointsPlayer:
     print(f"Égalité avec {pointsPlayer} !")
 else:
     print(f"Vous avez gagné ! ({pointsPlayer} contre {pointsOrdi})")
-

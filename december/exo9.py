@@ -8,9 +8,10 @@ def test2(a: str, b: str) -> int:
         return n
     return 0
 
+
 a = input("ch1 : ")
 b = input("ch2 : ")
-n = test2(a,b)
+n = test2(a, b)
 if n == 0:
     print("non")
 else:

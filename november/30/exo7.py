@@ -5,6 +5,7 @@ def compteVers(strophe: str):
             count += 1
     return count
 
+
 hymne = """A la très chère, à la très belle
 Qui remplit mon coeur de clarté,
 A l'ange, à l'idole immortelle,
@@ -14,9 +15,9 @@ c = compteVers(hymne)
 
 if c == 3:
     print("tercet")
-elif c==4:
+elif c == 4:
     print("quatrain")
-elif c==5:
+elif c == 5:
     print("quintil")
-elif c==6:
+elif c == 6:
     print("sizain")

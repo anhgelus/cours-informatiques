@@ -1,7 +1,8 @@
 noms = ["Florian", "Léa", "Erwan", "Leila", "Ines", "Alain", "Hadi"]
 notes = [2, 12, 7, 11, 20, 0, 12]
-easy = [(noms[i], notes[i]) for i in range(len(noms))]  # je combine juste les deux listes en une seule avec des sous-listes
-moyennes = sum(notes)/len(notes)
+easy = [(noms[i], notes[i]) for i in range(len(noms))]  # je combine juste les deux listes en une seule avec des
+# sous-listes
+moyennes = sum(notes) / len(notes)
 nice = []
 i = 0
 l = 0
